@@ -167,10 +167,14 @@ public class BaseDriver {
 		driver.findElement(By.id("termsofservice")).click();
 
 		driver.findElement(By.id("checkout")).click();
+		try {
 
-		Select dropdown = new Select(driver.findElement(By.id("billing-address-select")));
-		int selectOptions = dropdown.getOptions().size();
-		dropdown.selectByIndex(selectOptions - 1);
+			Select dropdown = new Select(driver.findElement(By.id("billing-address-select")));
+			int selectOptions = dropdown.getOptions().size();
+			dropdown.selectByIndex(selectOptions - 1);
+		} catch (Exception e) {
+
+		}
 
 		Select countryId = new Select(driver.findElement(By.id("BillingNewAddress_CountryId")));
 		countryId.selectByValue("41");
